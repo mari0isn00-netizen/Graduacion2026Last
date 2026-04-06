@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Última Tarde — TV Exterior</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./exterior.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+  <div class="dust"></div>
+  <div class="ambient-orbs"></div>
+  <div class="light-leaks"></div>
+  <div id="whiteBurn" class="white-burn"></div>
+  <div id="signalSweep" class="signal-sweep"></div>
+  <div id="flashBoost" class="flash-boost"></div>
+  <div id="globalShake" class="global-shake"></div>
+
+  <audio id="audioDtmf" preload="auto" src="./assets/audio/dtmf-bad-bunny.mp3"></audio>
+  <audio id="audioClick" preload="auto"></audio>
+  <audio id="audioStatic" preload="auto"></audio>
+
+  <section id="scene-standby" class="scene active">
+    <div class="scene-bg paper-bg dormant-bg"></div>
+    <div class="ghost-polaroids">
+      <div class="ghost-polaroid gp1"></div>
+      <div class="ghost-polaroid gp2"></div>
+      <div class="ghost-polaroid gp3"></div>
+      <div class="ghost-polaroid gp4"></div>
+    </div>
+    <div class="thread-lines"></div>
+    <div class="standby-sparks"></div>
+    <div class="standby-void"></div>
+    <div class="standby-porch"></div>
+    <div class="standby-monitor-shell">
+      <div class="monitor-glass"></div>
+      <div class="monitor-led"></div>
+      <div class="monitor-ui left">
+        <span>standby memory</span>
+        <span>porche exterior</span>
+      </div>
+      <div class="monitor-ui right">
+        <span>signal asleep</span>
+        <span>waiting all guests</span>
+      </div>
+    </div>
+    <div class="center-wrap intro-center slow-breathe standby-center">
+      <p class="kicker">promoción 2022–2026</p>
+      <h1 class="main-title dormant-title">La Última Tarde</h1>
+      <p class="sub dormant-sub">la señal sigue dormida</p>
+      <div class="divider dormant-divider"></div>
+      <p class="micro dormant-micro">cuando estéis todos, la televisión sabrá que ha llegado la hora</p>
+    </div>
+    <div class="standby-sidecar">
+      <div class="sidecar-line"></div>
+      <p>standby mode</p>
+      <p>canal sin fijar</p>
+      <p>ruido base activo</p>
+    </div>
+    <div class="status-note">esperando señal</div>
+  </section>
+
+  <section id="scene-zapping" class="scene">
+    <div class="scene-bg crt-bg"></div>
+    <div class="zapping-wrap fullscreen-zapping">
+      <div class="zapping-hud top-hud analog-osd">
+        <span id="hudChannel">CH 01</span>
+        <span id="hudStation">ARCHIVO LOCAL</span>
+        <span id="hudClock">19:00</span>
+      </div>
+      <div id="zappingScreen" class="zapping-screen mode-static">
+        <video id="zappingVideo" class="zapping-video" playsinline preload="metadata"></video>
+        <div id="zappingFallback" class="zapping-fallback active">
+          <div class="noise-layer noise-a"></div>
+          <div class="noise-layer noise-b"></div>
+          <div class="tracking-line"></div>
+          <div class="tracking-line tl2"></div>
+          <div class="mono-band mono-a"></div>
+          <div class="mono-band mono-b"></div>
+          <div class="color-bars"></div>
+          
+        </div>
+        <div class="crt-mask"></div>
+        <div class="crt-reflection"></div>
+        <div class="crt-ghost ghost-one"></div>
+        <div class="crt-ghost ghost-two"></div>
+        <div class="crt-flicker"></div>
+        <div class="channel-overlay analog-bottom-osd">
+          <div class="channel-left">
+            <div class="channel-pill"><span id="liveLabel">ch 01</span></div>
+            <div id="hudSubline" class="hud-subline">archivo local</div>
+          </div>
+          <div class="signal-cluster analog-cluster">
+            <div class="signal-bars"><i></i><i></i><i></i><i class="weak"></i></div>
+            <div id="signalQuality" class="signal-quality">mono</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene-intro" class="scene black-scene">
+    <div class="scene-bg black-bg"></div>
+    <div class="intro-aura"></div>
+    <div class="intro-text-wrap">
+      <div class="intro-lines" id="introLines">
+        <p class="intro-line">Cuatro cursos cruzando la puerta del instituto</p>
+        <p class="intro-line">Cuatro años de timbres, recreos y cambios de clase</p>
+        <p class="intro-line">Pasillos, mochilas, miradas y los de siempre al fondo</p>
+        <p class="intro-line">Risas en el patio, carreras al aula y secretos entre clases</p>
+        <p class="intro-line">Profes, exámenes y días que parecían eternos</p>
+        <p class="intro-line">Fotos que dejamos para luego y momentos que ya no vuelven</p>
+        <p class="intro-line">Lo cotidiano se nos convirtió en recuerdo sin avisar</p>
+        <p class="intro-line">Y esta noche, todo vuelve a encontrarnos</p>
+      </div>
+    </div>
+    <div class="music-fade" id="musicFade"></div>
+  </section>
+
+  <section id="scene-burst" class="scene">
+    <div class="scene-bg burst-bg"></div>
+    <div class="burst-lights"></div>
+    <div class="burst-strobes"></div>
+    <div class="burst-rings"></div>
+    <div class="burst-ribbons"></div>
+    <div class="burst-stars"></div>
+    <div class="burst-confetti-cloud"></div>
+    <div class="analog-fade"></div>
+    <div class="burst-analog-noise"></div>
+    <div class="burst-ticker"><span>la noche empieza · por fin estamos aquí · la última tarde · promoción 2022–2026 ·</span></div>
+    <div class="burst-particles" id="burstParticles"></div>
+    <div class="burst-wrap">
+      <p class="title-kicker">la señal ya os ha encontrado</p>
+      <h2 class="event-title celebration-title">La Última Tarde</h2>
+      <p class="burst-sub">del porche al instituto, del recuerdo al presente: esta noche ya está viva</p>
+      <div class="burst-names">19:00 — 23:00 · juegos y actividades</div>
+      <div class="burst-wave">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="burst-grid-cards">
+        <article class="burst-card"><span>esta noche</span><strong>todo cambia de golpe</strong><p>del ruido a la señal. del patio al recuerdo.</p></article>
+        <article class="burst-card"><span>19:00–23:00</span><strong>juegos y actividades</strong><p>lo demás se contará cuando toque.</p></article>
+        <article class="burst-card"><span>ahora</span><strong>empieza la última tarde</strong><p>primero, escuchad. luego, vividla.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="scene-speech" class="scene">
+    <div class="scene-bg paper-bg dormant-bg"></div>
+    <div class="speech-noise"></div>
+    <div class="speech-deck-shell">
+      <div class="speech-deck-top">
+        <div>
+          <p class="speech-eyebrow">la última tarde · bloque inicial</p>
+          <h2 class="speech-main-title">Speech + apoyo visual</h2>
+        </div>
+        <div class="speech-counter" id="speechCounter">Slide 1 / 10</div>
+      </div>
+
+      <div class="speech-deck-stage" id="speechDeckStage">
+        <article class="speech-slide active" data-speech-title="Bienvenida">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Bienvenida</p>
+            <h3>Bienvenidos a<br>La Última Tarde</h3>
+            <p class="speech-lead">Promoción 2022–2026</p>
+            <p class="speech-copy">Gracias por estar aquí esta noche.</p>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Qué es esta noche">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Qué es esta noche</p>
+            <h3>Esto no va solo<br>de despedirnos</h3>
+            <p class="speech-big">Va de vivir juntos una última noche de juegos, recuerdos y momentos que merezcan quedarse.</p>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Horario">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Horario</p>
+            <div class="speech-time-box">
+              <div class="speech-time">19:00 · 23:00</div>
+              <div class="speech-time-sub">juegos y actividades</div>
+            </div>
+            <p class="speech-copy">Estad atentos durante toda la noche.</p>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Normas básicas">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Normas básicas</p>
+            <h3>Normas generales</h3>
+            <div class="speech-grid">
+              <div class="speech-point"><span>🚫</span><div><b>Nada de alcohol</b><small>Queremos que todo el mundo esté bien durante la noche.</small></div></div>
+              <div class="speech-point"><span>🫱</span><div><b>Seguid a los organizadores</b><small>Si os pedimos algo, es para que todo salga bien.</small></div></div>
+              <div class="speech-point"><span>🚻</span><div><b>No tiréis papel ni toallitas</b><small>Especialmente al servicio. Cuidad el sitio.</small></div></div>
+              <div class="speech-point"><span>🚪</span><div><b>No salgáis sin avisar</b><small>Si alguien va a salir del recinto, tiene que decirlo antes.</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Respeto y convivencia">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Respeto y convivencia</p>
+            <h3>Estad a gusto<br>y dejad estar</h3>
+            <div class="speech-grid">
+              <div class="speech-point"><span>🤝</span><div><b>Respetad a los demás</b><small>Cualquier conducta que moleste puede acabar en expulsión.</small></div></div>
+              <div class="speech-point"><span>🏠</span><div><b>Respetad la casa y el campo</b><small>Todo esto se está usando para que podamos vivir la noche aquí.</small></div></div>
+              <div class="speech-point"><span>💸</span><div><b>Si rompes algo, lo pagas</b><small>Hay que cuidar el sitio y ser responsables.</small></div></div>
+              <div class="speech-point"><span>🎒</span><div><b>Cuidad vuestras cosas</b><small>No nos hacemos responsables de objetos perdidos.</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Seguridad">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Seguridad</p>
+            <h3>Seguridad del campo</h3>
+            <div class="speech-grid">
+              <div class="speech-point"><span>⛔</span><div><b>Zonas restringidas</b><small>No entréis ni os acerquéis a zonas peligrosas del campo.</small></div></div>
+              <div class="speech-point"><span>🧱</span><div><b>No subáis a estructuras</b><small>Ni tejados, ni muros altos, ni árboles grandes.</small></div></div>
+              <div class="speech-point"><span>🔥</span><div><b>Nada de fuego ni petardos</b><small>Tampoco objetos peligrosos de ningún tipo.</small></div></div>
+              <div class="speech-point"><span>⚠️</span><div><b>Si pasa algo, avisad</b><small>Cualquier accidente o problema se comunica al momento.</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Organización">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Organización</p>
+            <h3>Importante</h3>
+            <div class="speech-grid single-row">
+              <div class="speech-point"><span>📱</span><div><b>Llevad el móvil encima</b><small>Se necesitará durante algunas actividades de la noche.</small></div></div>
+              <div class="speech-point"><span>👥</span><div><b>No traigáis a nadie extra</b><small>No se permite traer personas fuera de la lista de invitados.</small></div></div>
+              <div class="speech-point"><span>👀</span><div><b>Estad atentos</b><small>Habrá cosas que se irán anunciando sobre la marcha.</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Piscina">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Piscina</p>
+            <h3>Normas de piscina</h3>
+            <div class="speech-grid">
+              <div class="speech-point"><span>🚿</span><div><b>Ducha antes de entrar</b><small>Es lo primero.</small></div></div>
+              <div class="speech-point"><span>🥤</span><div><b>Nada de bebidas ni comida</b><small>No queremos accidentes ni suciedad en la piscina.</small></div></div>
+              <div class="speech-point"><span>🚫</span><div><b>No empujéis a nadie</b><small>Ni mascotas en el agua.</small></div></div>
+              <div class="speech-point"><span>⚠️</span><div><b>Respeto total</b><small>Y sí: prohibido orinar en la piscina.</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="speech-slide speech-slide-album" data-speech-title="Álbum de fotos">
+          <div class="speech-album-paper"></div>
+          <div class="speech-slide-content">
+            <p class="speech-chip">Álbum de fotos</p>
+            <h3>Esta noche también<br>se va a recordar</h3>
+            <p class="speech-big">Habrá misiones de fotos durante la fiesta.</p>
+            <p class="speech-copy">Cada foto irá formando parte del álbum de la noche.</p>
+          </div>
+        </article>
+
+        <article class="speech-slide" data-speech-title="Cierre">
+          <div class="speech-slide-content">
+            <p class="speech-chip">Cierre</p>
+            <h3>Disfrutad la noche</h3>
+            <p class="speech-big">Gracias por estar aquí.</p>
+            <p class="speech-copy">Esto acaba de empezar.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="speech-deck-controls">
+        <button id="speechPrevBtn" class="speech-btn speech-btn-secondary">Anterior</button>
+        <button id="speechNextBtn" class="speech-btn speech-btn-primary">Siguiente</button>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section id="scene-hijack" class="scene">
+    <div class="integrated-preview" id="hijackPresentation">
+      <div class="integrated-preview-shell" id="hijackCapturedFrame"></div>
+    </div>
+
+    <div class="integrated-fx bars" id="hijackBars">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="integrated-fx bloom" id="hijackBloom"></div>
+    <div class="integrated-fx noise" id="hijackNoise"></div>
+    <div class="integrated-fx scan" id="hijackScan"></div>
+    <div class="integrated-fx tear" id="hijackTear"></div>
+    <div class="integrated-fx rgb-a" id="hijackRgbA"></div>
+    <div class="integrated-fx rgb-b" id="hijackRgbB"></div>
+    <div class="integrated-fx rgb-c" id="hijackRgbC"></div>
+    <div class="integrated-fx white-hit" id="hijackWhiteHit"></div>
+    <div class="integrated-fx fracture" id="hijackFracture"><div class="f3"></div></div>
+    <div class="integrated-fx blackout" id="hijackBlackout"></div>
+    <div class="integrated-fx collapse" id="hijackCollapse"></div>
+
+    <div class="integrated-system" id="hijackSystem">
+      <div class="integrated-system-top"><div class="integrated-system-title">core recovery environment</div></div>
+      <div class="integrated-system-body">
+        <div class="integrated-system-map">
+          <div class="node n1"></div><div class="node n2"></div><div class="node n3"></div><div class="node n4"></div>
+          <div class="path p1"></div><div class="path p2"></div><div class="path p3"></div>
+        </div>
+        <div class="integrated-logs">
+          <div><span class="bad">[ critical ]</span> device core compromised</div>
+          <div><span class="bad">[ critical ]</span> presentation process terminated unexpectedly</div>
+          <div><span class="warn">[ warning ]</span> visual shell destroyed</div>
+          <div><span class="warn">[ warning ]</span> switching to recovery environment</div>
+          <div><span class="ok">[ mount ]</span> internal storage detected</div>
+          <div><span class="ok">[ read ]</span> accediendo al disco duro...</div>
+          <div><span class="ok">[ scan ]</span> buscando entorno recuperable</div>
+          <div><span class="warn">[ hidden ]</span> sector no documentado localizado</div>
+        </div>
+        <div class="integrated-progress-wrap"><div class="integrated-progress" id="hijackProgress"></div></div>
+        <div class="integrated-drive-row">
+          <div class="integrated-drive-chip">drive 0 · online</div>
+          <div class="integrated-drive-chip">sector map · rebuilding</div>
+          <div class="integrated-drive-chip">boot source · hidden</div>
+          <div class="integrated-drive-chip">layer id · informante</div>
+        </div>
+        <div class="integrated-error-stamp">system recovery mode</div>
+      </div>
+    </div>
+
+    <div class="integrated-portal" id="hijackPortal">
+      <div class="integrated-osd"><span>CH ??</span><span>SEÑAL NO AUTORIZADA</span><span>19:23</span></div>
+      <div class="integrated-portal-warning">se ha detectado una capa no autorizada</div>
+      <div class="integrated-portal-title">entorno oculto localizado</div>
+      <div class="integrated-portal-core"></div>
+      <div class="integrated-portal-sub">el sistema ha encontrado algo que no debía existir</div>
+    </div>
+
+    <div class="integrated-reveal" id="hijackReveal">
+      <div class="integrated-illegal-stamps"><span>unauthorized process</span><span>hidden layer mounted</span><span>root access bypassed</span></div>
+      <div class="integrated-reveal-kicker">bienvenidos a</div>
+      <div class="integrated-informante-wrap">
+        <div class="integrated-informante-grid"></div>
+        <div class="integrated-informante-code"><span>asset unlocked</span><span>surveillance social</span><span>trust collapse</span><span>read behaviour</span></div>
+        <div class="integrated-informante-shadow">EL<br>INFORMANTE</div>
+        <div class="integrated-informante-main"><span class="cut">EL</span><span class="cut">INFORMANTE</span></div>
+        <div class="integrated-informante-meta"><span>juego social</span><span>interceptación</span><span>lectura de sospechas</span><span>campo dividido</span><span>roles ocultos</span></div>
+        <div class="integrated-informante-redact"><div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div></div>
+        <div class="integrated-informante-dossier"><div class="head">operation dossier</div><div class="line"></div><div class="line short"></div><div class="line"></div><div class="line tiny"></div></div>
+        <div class="integrated-informante-stamp">classified mode</div>
+      </div>
+      <div class="integrated-reveal-sub">la presentación no cambió · fue sustituida desde dentro</div>
+    </div>
+
+    <div class="status-note hijack-note">sistema secuestrado</div>
+  </section>
+
+
+  <script src="./exterior.js"></script>
+</body>
+</html>
